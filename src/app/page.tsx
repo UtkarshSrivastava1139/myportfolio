@@ -146,9 +146,9 @@ export default function Home() {
             <p className="text-xl text-gray-300 mt-2">{title}</p>
             
             {/* Static tagline with cursor */}
-            <p className="h-8 text-lg md:text-xl text-cyan-300 font-light mt-1">
+            <p className="h-8 text-md md:text-xl text-cyan-300 font-light mt-1">
               {taglineText}
-              <span className="inline-block w-0.5 h-5 ml-1 bg-cyan-300 animate-blink"></span>
+              {/* <span className="inline-block w-0.5 h-5 ml-1 bg-cyan-300 animate-blink"></span> */}
             </p>
             
             {/* Status badge with dark theme */}
