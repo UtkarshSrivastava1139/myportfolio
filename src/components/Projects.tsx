@@ -17,7 +17,6 @@ const Projects = () => {
       description: "AI-powered sustainability platform promoting eco-friendly actions through gamification and community participation. Features eco-points, AI-based deed verification, weather updates, pledges, and leaderboard system.",
       image: "/api/placeholder/400/300",
       technologies: ["Next.js", "Tailwind CSS", "Flask", "Python", "MongoDB", "OpenCV", "OpenAI API"],
-      liveLink: "https://roots-rosy.vercel.app",
       githubLink: "#",
       featured: true,
       date: "Nov 2024",
