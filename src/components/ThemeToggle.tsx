@@ -5,11 +5,11 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const ThemeToggle = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
 
   const handleToggle = () => {
     console.log('Theme toggle clicked, current theme:', theme);
-    toggleTheme();
+    // Theme is fixed to dark mode in this portfolio
   };
 
   return (
@@ -27,8 +27,8 @@ const ThemeToggle = () => {
       `}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-      title={`Current theme: ${theme}. Click to switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label="Dark mode theme"
+      title="Current theme: Dark mode"
     >
       <motion.div
         initial={false}

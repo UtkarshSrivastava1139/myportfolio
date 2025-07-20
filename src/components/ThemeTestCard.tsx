@@ -3,7 +3,7 @@
 import { useTheme } from "@/contexts/ThemeContext";
 
 const ThemeTestCard = () => {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   
   return (
     <div className="fixed top-20 right-4 z-50">
@@ -12,12 +12,6 @@ const ThemeTestCard = () => {
         <p className="text-gray-600 dark:text-gray-400 mb-3">
           Current theme: <span className="font-semibold">{theme}</span>
         </p>
-        <button
-          onClick={toggleTheme}
-          className="bg-blue-500 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors"
-        >
-          Toggle Theme
-        </button>
       </div>
     </div>
   );
