@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
 
 const Projects = () => {
   const { ref, inView } = useInView({
@@ -15,7 +16,7 @@ const Projects = () => {
       id: 1,
       title: "ROOTS – For a Better Earth",
       description: "AI-powered sustainability platform promoting eco-friendly actions through gamification and community participation. Features eco-points, AI-based deed verification, weather updates, pledges, and leaderboard system.",
-      image: "/api/placeholder/400/300",
+      image: "/projects/Roots.png",
       technologies: ["Next.js", "Tailwind CSS", "Flask", "Python", "MongoDB", "OpenCV", "OpenAI API"],
       githubLink: "#",
       featured: true,
@@ -26,7 +27,7 @@ const Projects = () => {
       id: 2,
       title: "Hack4Bihar – Official Website",
       description: "Official website for a national-level hackathon focused on seamless registration and large-scale visibility. Designed 70%+ frontend, improved SEO & performance (+40%), and sign-ups (+80%).",
-      image: "/api/placeholder/400/300",
+      image: "/projects/hack4bihar.png",
       technologies: ["Next.js", "Tailwind CSS", "Django", "Python", "Figma"],
       liveLink: "https://hack4bihar.live",
       githubLink: "#",
@@ -38,7 +39,7 @@ const Projects = () => {
       id: 3,
       title: "HackNeeti – Official Website",
       description: "Website for HackNeeti 2025 hackathon, designed for high engagement and large-scale participant handling with smooth UX and animated UI.",
-      image: "/api/placeholder/400/300",
+      image: "/projects/hackneeti.png",
       technologies: ["Next.js", "Tailwind CSS", "Framer Motion", "APIs"],
       liveLink: "https://hackneeti.vercel.app",
       githubLink: "#",
@@ -50,7 +51,7 @@ const Projects = () => {
       id: 4,
       title: "Starkseek – Company Website",
       description: "Responsive and SEO-optimized company site with focus on UI/UX and performance. Integrated APIs and improved user engagement through smooth navigation.",
-      image: "/api/placeholder/400/300",
+      image: "/projects/starkseek.png",
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
       liveLink: "https://starkseek.com",
       githubLink: "#",
@@ -61,7 +62,7 @@ const Projects = () => {
       id: 5,
       title: "IEEE JSSUN SB – Official Website",
       description: "Official website for the IEEE JSS University Student Branch to showcase events, announcements, and team activities with real-time updates and responsive design.",
-      image: "/api/placeholder/400/300",
+      image: "/projects/ieee jssun sb.png",
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS"],
       liveLink: "https://ieeejssuninoida.vercel.app",
       githubLink: "#",
@@ -101,20 +102,26 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: 0.1 * index }}
               className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 group"
             >
-              <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <div className="text-white text-4xl opacity-20">
-                  {project.title.split(' ').map(word => word[0]).join('')}
-                </div>
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={`${project.title} screenshot`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                 <div className="absolute top-3 right-3 flex gap-2">
-                  <a
-                    href={project.liveLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-                  >
-                    <ExternalLink size={16} className="text-white" />
-                  </a>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
+                    >
+                      <ExternalLink size={16} className="text-white" />
+                    </a>
+                  )}
                   <a
                     href={project.githubLink}
                     target="_blank"
@@ -168,19 +175,26 @@ const Projects = () => {
                 transition={{ duration: 0.8, delay: 0.1 * index }}
                 className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 group"
               >
-                <div className="relative h-40 bg-gradient-to-br from-gray-400 to-gray-600 flex items-center justify-center">
-                  <div className="text-white text-3xl opacity-20">
-                    {project.title.split(' ').map(word => word[0]).join('')}
-                  </div>
+                <div className="relative h-40 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
                   <div className="absolute top-2 right-2 flex gap-1.5">
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-1.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
-                    >
-                      <ExternalLink size={14} className="text-white" />
-                    </a>
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 bg-white/20 backdrop-blur-sm rounded-full hover:bg-white/30 transition-colors"
+                      >
+                        <ExternalLink size={14} className="text-white" />
+                      </a>
+                    )}
                     <a
                       href={project.githubLink}
                       target="_blank"
