@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Srivastava | Full Stack Developer",
+  title: "Utkarsh Srivastava | Full Stack Developer & UI/UX Designer",
   description: "Turning ideas into interactive web experiences. Full Stack Developer specializing in React, Node.js, and modern web technologies.",
   keywords: ["Full Stack Developer", "React", "Node.js", "Web Developer", "JavaScript", "TypeScript"],
   authors: [{ name: "Utkarsh Srivastava" }],
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Utkarsh Srivastava | Full Stack Developer",
     description: "Turning ideas into interactive web experiences",
-    url: "https://your-domain.com",
+    url: "https://utkarshsrivastava.me",
     siteName: "Utkarsh Srivastava Portfolio",
     images: [
       {
