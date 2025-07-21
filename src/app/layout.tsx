@@ -11,6 +11,27 @@ export const metadata: Metadata = {
   keywords: ["Full Stack Developer", "React", "Node.js", "Web Developer", "JavaScript", "TypeScript"],
   authors: [{ name: "Utkarsh Srivastava" }],
   creator: "Utkarsh Srivastava",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/favicon.png",
+        type: "image/png",
+        sizes: "32x32",
+      },
+    ],
+    apple: [
+      {
+        url: "/favicon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    shortcut: "/favicon.png",
+  },
   openGraph: {
     title: "Utkarsh Srivastava | Full Stack Developer",
     description: "Turning ideas into interactive web experiences",
