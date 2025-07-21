@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, ArrowUp, Heart } from "lucide-react";
 import Image from "next/image";
+import emailjs from '@emailjs/browser';
+import { emailjsConfig } from '@/config/emailjs';
 
 const Contact = () => {
   const { ref, inView } = useInView({
@@ -61,15 +63,29 @@ const Contact = () => {
     setSubmitStatus("idle");
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // In a real application, you would send the data to your backend
-      console.log("Form submitted:", formData);
-      
+      // Initialize EmailJS with public key
+      emailjs.init(emailjsConfig.publicKey);
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'utkarshsri1139@gmail.com',
+        },
+        emailjsConfig.publicKey
+      );
+
+      console.log('Email sent successfully:', result);
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
+      setErrors({});
     } catch (error) {
+      console.error('Email sending failed:', error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
