@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Award, Trophy, Users, Download, ExternalLink, ChevronDown, ChevronUp, Medal, Eye, X } from "lucide-react";
+import Image from "next/image";
 
 interface AchievementItem {
   title: string;
@@ -488,9 +489,11 @@ const Achievements = () => {
                           onClick={() => setSelectedCertificate(certificate)}
                         >
                           <div className="aspect-[4/3] relative overflow-hidden">
-                            <img
+                            <Image
                               src={certificate.image}
                               alt={certificate.name}
+                              width={300}
+                              height={225}
                               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                               onError={(e) => {
                                 const target = e.target as HTMLImageElement;
@@ -655,9 +658,11 @@ const Achievements = () => {
                 </button>
               </div>
               <div className="p-6">
-                <img
+                <Image
                   src={selectedCertificate.image}
                   alt={selectedCertificate.name}
+                  width={600}
+                  height={400}
                   className="w-full h-auto rounded-lg shadow-lg"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;

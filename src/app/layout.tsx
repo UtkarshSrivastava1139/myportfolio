@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://utkarshsrivastava.me'),
   title: "Utkarsh Srivastava | Full Stack Developer & UI/UX Designer",
   description: "Turning ideas into interactive web experiences. Full Stack Developer specializing in React, Node.js, and modern web technologies.",
   keywords: ["Full Stack Developer", "React", "Node.js", "Web Developer", "JavaScript", "TypeScript"],
