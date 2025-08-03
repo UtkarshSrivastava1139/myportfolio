@@ -5,6 +5,8 @@ import { useInView } from "react-intersection-observer";
 import { useState } from "react";
 import { Award, Trophy, Users, Download, ExternalLink, ChevronDown, ChevronUp, Medal, Eye, X } from "lucide-react";
 import Image from "next/image";
+import { CertificateManager } from "@/utils/certificateManager";
+import { certificatesData } from "@/data/certificates";
 
 interface AchievementItem {
   title: string;
@@ -23,6 +25,8 @@ interface Certificate {
   date: string;
   image: string;
   category: string;
+  priority?: number;
+  featured?: boolean;
 }
 
 interface AchievementSection {
@@ -43,6 +47,16 @@ const Achievements = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<Certificate | null>(null);
   const [certificateFilter, setCertificateFilter] = useState<string>("all");
 
+  // Initialize Certificate Manager
+  const certificateManager = new CertificateManager(certificatesData);
+  
+  // Get organized certificates
+  const filteredCertificates = certificateManager.getByCategory(certificateFilter);
+  const certificateCategories = certificateManager.getCategories();
+  const certificateCounts = certificateManager.getCountByCategory();
+  const featuredCertificates = certificateManager.getFeaturedCertificates();
+  const recentCertificates = certificateManager.getRecentCertificates();
+
   const toggleSection = (sectionId: string) => {
     setOpenSections(prev => 
       prev.includes(sectionId) 
@@ -50,200 +64,6 @@ const Achievements = () => {
         : [...prev, sectionId]
     );
   };
-
-  // Certificate data - you can expand this array as needed
-  const certificates: Certificate[] = [
-    {
-      id: "1",
-      name: "Python (Basic)",
-      issuer: "HackerRank",
-      date: "2024",
-      image: "/certificates/Certificate Python(Basic).png",
-      category: "Programming"
-    },
-    {
-      id: "2", 
-      name: "GSSoC 2024 Extended Contributor",
-      issuer: "GirlScript Summer of Code",
-      date: "2024",
-      image: "/certificates/Utkarsh_Srivastava_Badge_Contributor_GSSoC2024-Extd.png",
-      category: "Open Source"
-    },
-    {
-      id: "3",
-      name: "Build with India",
-      issuer: "Build with India",
-      date: "2024",
-      image: "/certificates/Build with India.png",
-      category: "Hackathon"
-    },
-    {
-      id: "4",
-      name: "Campus Ambassador - BITS Pilani",
-      issuer: "BITS Pilani",
-      date: "2024",
-      image: "/certificates/Campus Ambassdor - BITS.jpg",
-      category: "Ambassador"
-    },
-    {
-      id: "5",
-      name: "University Conclave Volunteer",
-      issuer: "JSS University",
-      date: "2024",
-      image: "/certificates/Certificate for Volunterring - University Conclave.png",
-      category: "Volunteer"
-    },
-    {
-      id: "6",
-      name: "Campus Ambassador - IIT BHU CodeFest",
-      issuer: "IIT BHU",
-      date: "2025",
-      image: "/certificates/Certificate IIT BHU CA Code Fest.jpeg",
-      category: "Ambassador"
-    },
-    {
-      id: "7",
-      name: "2nd Prize - Poster Presentation",
-      issuer: "JSS University",
-      date: "2024",
-      image: "/certificates/Certificate of Achievement Poster Presentation 2nd prize.png",
-      category: "Award"
-    },
-    {
-      id: "8",
-      name: "Appreciation - CashKaro",
-      issuer: "CashKaro",
-      date: "2024",
-      image: "/certificates/Certificate of Appreciation - CashKaro.png",
-      category: "Appreciation"
-    },
-    {
-      id: "9",
-      name: "IEEE GitHub Event Participation",
-      issuer: "IEEE",
-      date: "2024",
-      image: "/certificates/Certificate of Appreciation - IEEE Github Event.png",
-      category: "Workshop"
-    },
-    {
-      id: "10",
-      name: "CSE Department Conclave",
-      issuer: "JSS University - CSE Dept",
-      date: "2024",
-      image: "/certificates/Certificate of Participation - Conclave of Dept. of CSE.png",
-      category: "Event"
-    },
-    {
-      id: "11",
-      name: "School of Science & Humanities Conclave",
-      issuer: "JSS University",
-      date: "2024",
-      image: "/certificates/Certificate of Participation - Conclave of School of Science & Humanities.png",
-      category: "Event"
-    },
-    {
-      id: "12",
-      name: "TOP 10 Teams - Convergex Hackathon",
-      issuer: "Convergex",
-      date: "2024",
-      image: "/certificates/Certificate of Participation - TOP 10 Teams Covergex Hackathon Dec 2024.png",
-      category: "Hackathon"
-    },
-    {
-      id: "13",
-      name: "Poster Presentation Participation",
-      issuer: "JSS University",
-      date: "2024",
-      image: "/certificates/Certificate of Participation Poster Presentation.png",
-      category: "Event"
-    },
-    {
-      id: "14",
-      name: "IEEE WebMaster Volunteer",
-      issuer: "IEEE",
-      date: "2024",
-      image: "/certificates/Certificate of Volunteer - IEEE WebMaster.jpg",
-      category: "Volunteer"
-    },
-    {
-      id: "15",
-      name: "Samsung Solve for Tomorrow",
-      issuer: "Samsung",
-      date: "2024",
-      image: "/certificates/Certificate-of-Participation Samsung Solve for Tomorrow.jpg",
-      category: "Competition"
-    },
-    {
-      id: "16",
-      name: "Creative Member Newsletter",
-      issuer: "JSS University",
-      date: "2024",
-      image: "/certificates/Creative Member Newsletter Certificate.png",
-      category: "Creative"
-    },
-    {
-      id: "17",
-      name: "CSIS Ambassador",
-      issuer: "CSIS",
-      date: "2025",
-      image: "/certificates/CSIS ambassdor.png",
-      category: "Ambassador"
-    },
-    {
-      id: "18",
-      name: "Hack4Bihar Internship Offer",
-      issuer: "Hack4Bihar",
-      date: "2025",
-      image: "/certificates/Hack4Bihar Offer Letter.jpeg",
-      category: "Internship"
-    },
-    {
-      id: "19",
-      name: "IEEE India Council Participation",
-      issuer: "IEEE India Council",
-      date: "2024",
-      image: "/certificates/IEEE INDIA COUNCIL participation.jpg",
-      category: "Workshop"
-    },
-    {
-      id: "20",
-      name: "IEEE Xtreme Programming Contest",
-      issuer: "IEEE",
-      date: "2024",
-      image: "/certificates/ieee xtreme.jpg",
-      category: "Competition"
-    },
-    {
-      id: "21",
-      name: "IGDTUW Hackathon",
-      issuer: "IGDTUW",
-      date: "2024",
-      image: "/certificates/IGDTUW Hackathon.png",
-      category: "Hackathon"
-    },
-    {
-      id: "22",
-      name: "StarkSeek Internship Offer",
-      issuer: "StarkSeek",
-      date: "2024",
-      image: "/certificates/StarkSeek Offer Letter.jpeg",
-      category: "Internship"
-    },
-    {
-      id: "23",
-      name: "YESIST12 Ambassador",
-      issuer: "IEEE YESIST12",
-      date: "2025",
-      image: "/certificates/yesist ambassdor.jpeg",
-      category: "Ambassador"
-    },
-    // Add more certificates here as you get them
-  ];
-
-  const certificateCategories = ["all", ...Array.from(new Set(certificates.map(cert => cert.category)))];
-  const filteredCertificates = certificateFilter === "all" 
-    ? certificates 
-    : certificates.filter(cert => cert.category === certificateFilter);
 
   const achievements: AchievementSection[] = [
     {
@@ -468,10 +288,22 @@ const Achievements = () => {
                               : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
                           }`}
                         >
-                          {category.charAt(0).toUpperCase() + category.slice(1)}
+                          {category.charAt(0).toUpperCase() + category.slice(1)} ({certificateCounts[category] || 0})
                         </button>
                       ))}
                     </div>
+
+                    {/* Featured Certificates Banner */}
+                    {certificateFilter === "all" && featuredCertificates.length > 0 && (
+                      <div className="mb-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-lg border border-blue-200/50 dark:border-blue-700/50">
+                        <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
+                          🌟 Featured Certificates ({featuredCertificates.length})
+                        </h4>
+                        <p className="text-xs text-blue-700 dark:text-blue-200">
+                          Recent achievements and important certifications are highlighted with priority
+                        </p>
+                      </div>
+                    )}
 
                     {/* Certificates Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
@@ -485,9 +317,22 @@ const Achievements = () => {
                               : { opacity: 0, scale: 0.9 }
                           }
                           transition={{ duration: 0.3, delay: 0.1 * index }}
-                          className="group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden border border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300 hover:shadow-lg cursor-pointer"
+                          className={`group relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg overflow-hidden border transition-all duration-300 hover:shadow-lg cursor-pointer ${
+                            certificate.featured 
+                              ? "border-blue-300 dark:border-blue-600 ring-2 ring-blue-200/50 dark:ring-blue-700/50" 
+                              : "border-gray-200/50 dark:border-gray-700/50 hover:border-blue-300 dark:hover:border-blue-600"
+                          }`}
                           onClick={() => setSelectedCertificate(certificate)}
                         >
+                          {/* Featured Badge */}
+                          {certificate.featured && (
+                            <div className="absolute top-1 right-1 z-10">
+                              <div className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-1.5 py-0.5 rounded-full font-bold">
+                                ⭐
+                              </div>
+                            </div>
+                          )}
+                          
                           <div className="aspect-[4/3] relative overflow-hidden">
                             <Image
                               src={certificate.image}
@@ -515,7 +360,11 @@ const Achievements = () => {
                               <span className="text-xs text-gray-500 dark:text-gray-500">
                                 {certificate.date}
                               </span>
-                              <span className="px-1.5 py-0.5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 rounded text-xs font-medium border border-blue-200/50 dark:border-blue-700/50">
+                              <span className={`px-1.5 py-0.5 rounded text-xs font-medium border ${
+                                certificate.featured
+                                  ? "bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 border-blue-200/50 dark:border-blue-700/50"
+                                  : "bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border-gray-200/50 dark:border-gray-700/50"
+                              }`}>
                                 {certificate.category}
                               </span>
                             </div>
@@ -533,7 +382,7 @@ const Achievements = () => {
 
                     <div className="mt-6 text-center">
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Showing {filteredCertificates.length} of {certificates.length} certificates
+                        Showing {filteredCertificates.length} of {certificateManager.getTotalCount()} certificates
                       </p>
                     </div>
                   </div>
@@ -627,7 +476,7 @@ const Achievements = () => {
             <div className="text-green-100 text-sm">Events Organized</div>
           </div>
           <div className="text-center p-4 bg-gradient-to-br from-indigo-400 to-cyan-500 rounded-xl text-white">
-            <div className="text-2xl font-bold mb-1">{certificates.length}+</div>
+            <div className="text-2xl font-bold mb-1">{certificateManager.getTotalCount()}+</div>
             <div className="text-indigo-100 text-sm">Certificates</div>
           </div>
         </motion.div>
