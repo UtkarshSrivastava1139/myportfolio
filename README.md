@@ -112,8 +112,8 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## 📞 Contact
 
 - **Email**: utkarshsri1139@gmail.com
-- **LinkedIn**: [linkedin.com/in/utkarsh-srivastava](https://linkedin.com/in/utkarshsri1139)
-- **GitHub**: [github.com/utkarsh](https://github.com/utkarshsrivastava1139)
+- **LinkedIn**: [linkedin.com/in/utkarshsri1139](https://linkedin.com/in/utkarshsri1139)
+- **GitHub**: [github.com/utkarshsrivastava1139](https://github.com/utkarshsrivastava1139)
 
 ---
 
