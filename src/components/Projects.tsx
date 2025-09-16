@@ -17,11 +17,12 @@ const Projects = () => {
       title: "ROOTS – For a Better Earth",
       description: "AI-powered sustainability platform promoting eco-friendly actions through gamification and community participation. Features eco-points, AI-based deed verification, weather updates, pledges, and leaderboard system.",
       image: "/projects/Roots.png",
-      technologies: ["Next.js", "Tailwind CSS", "Flask", "Python", "MongoDB", "OpenCV", "OpenAI API"],
+      technologies: ["Next.js", "Tailwind CSS", "Flask", "Python", "MongoDB", "YoloV8", "Gemini API", "AI/ML"],
+      liveLink: "https://root4abetterearth.xyz",
       githubLink: "#",
       featured: true,
       date: "Nov 2024",
-      achievement: "🏆 Selected in Top 30 globally for IEEE YESIST12 2025 Grand Finale in Malaysia"
+      achievement: "🏆 Selected in Top 30/3000+ teams globally for IEEE YESIST12 2025 Grand Finale in Malaysia"
     },
     {
       id: 2,

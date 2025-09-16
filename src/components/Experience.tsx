@@ -178,6 +178,13 @@ const Experience = () => {
                     <p className="text-xs text-gray-600 dark:text-gray-400">EDC JSSUN</p>
                   </div>
                 </div>
+                <div className="flex items-start">
+                  <span className="w-1.5 h-1.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+                  <div>
+                    <p className="text-sm font-medium text-gray-800 dark:text-gray-200">Student Coordinator</p>
+                    <p className="text-xs text-gray-600 dark:text-gray-400">CSE Technical Council (Research Activity Cell)</p>
+                  </div>
+                </div>
               </div>
             </div>
 

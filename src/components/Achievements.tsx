@@ -73,6 +73,14 @@ const Achievements = () => {
       color: "from-yellow-400 to-orange-500",
       items: [
         {
+          title: "🏅 Top 30 Finalist – IEEE YESIST12 2025 (Malaysia)",
+          description: "Selected among top 30 global teams for Grand Finale at IEEE SB UKM, Malaysia",
+          date: "2025",
+          award: "Global Finalist",
+          details: "Out of 3000+ entries, ROOTS project reached Grand Finale for sustainable innovation",
+          verifyLink: "/certificates/yesist ambassdor.jpeg",
+        },
+        {
           title: "🥇 1st Prize – Project Presentation, IEEE JSS Noida",
           description: "Recognized for innovation and technical clarity in presenting the ROOTS platform",
           date: "2024",
@@ -87,14 +95,7 @@ const Achievements = () => {
           details: "Demonstrated AI applications in healthcare through compelling visual presentation",
           verifyLink: "/certificates/Certificate of Achievement Poster Presentation 2nd prize.png",
         },
-        {
-          title: "🌍 Finalist – IEEE YESIST12 2025 (Malaysia)",
-          description: "Selected among top 30 global teams for Grand Finale at IEEE SB UKM, Malaysia",
-          date: "2025",
-          award: "Global Finalist",
-          details: "Out of 1000+ entries, ROOTS project reached Grand Finale for sustainable innovation",
-          verifyLink: "/certificates/yesist ambassdor.jpeg",
-        },
+
         {
           title: "🏅 Top 5 – Convergex Hackathon 2024",
           description: "Recognized for innovative solutions in sustainable tech",
@@ -103,6 +104,14 @@ const Achievements = () => {
           details: "ROOTS project reached pre-final and final rounds in competitive sustainability hackathon",
           verifyLink: "/certificates/Certificate of Participation - TOP 10 Teams Covergex Hackathon Dec 2024.png",
         },
+        {
+          title: "🏅 Top 10 – Biztech Ideathon by NDIM, New Delhi",
+          description: "Selected among top 10 teams for innovative business solutions",
+          date: "2025",
+          award: "Top 10",
+          details: "ROOTS project reached pre-final and final rounds in competitive business ideathon",
+          verifyLink: "/certificates/biztechIdeathon.jpg",
+        }
       ],
     },
     {
@@ -172,6 +181,7 @@ const Achievements = () => {
           date: "2025",
           award: "Ambassador",
           details: "Promoted technical competitions and workshops for student community",
+          verifyLink: "/certificates/Certificate IIT BHU CA Code Fest.jpeg",
         },
         {
           title: "🚀 BITS Pilani – APOGEE Tech Fest Ambassador",
@@ -179,6 +189,7 @@ const Achievements = () => {
           date: "2025",
           award: "Ambassador",
           details: "Guided students for participation in national-level technical competitions",
+          verifyLink: "/certificates/Campus Ambassdor - BITS.jpg",
         },
       ],
     },
@@ -194,7 +205,7 @@ const Achievements = () => {
           date: "2024",
           award: "Certification",
           details: "Demonstrated core Python programming skills and problem-solving ability",
-          verifyLink: "#",
+          verifyLink: "/certificates/Certificate Python(Basic).png",
         },
         {
           title: "💻 Open Source Contributor – GSSoC 2024",
@@ -202,6 +213,7 @@ const Achievements = () => {
           date: "2024",
           award: "Contributor",
           details: "Engaged in issue resolution, UI fixes, and community interaction on GitHub",
+          verifyLink: "/certificates/Utkarsh_Srivastava_Badge_Contributor_GSSoC2024-Extd.png",
         },
         {
           title: "💻 Open Source Contributor – SWOC 2025",

@@ -9,9 +9,29 @@ export const certificatesData: Certificate[] = [
     date: "2025",
     image: "/certificates/Unstop_buildwithindia.jpg",
     category: "Hackathon",
+    priority: 4
+  },
+  {
+    id: "28",
+    name: "IEEE YESIST12 Grand Finale Finalist - Top 30/3000+ Teams",
+    issuer: "IEEE YESIST12",
+    date: "2025",
+    image: "/certificates/yesist12Finalist.jpg",
+    category: "Hackathon",
     featured: true,
     priority: 1
   },
+  {
+    id: "29",
+    name: "BizTech Ideathon - Finalist, Top 10/450+ Teams",
+    issuer: "NDIM, New Delhi",
+    date: "2025",
+    image: "/certificates/biztechIdeathon.jpg",
+    category: "Hackathon",
+    featured: true,
+    priority: 1
+  },
+  
   {
     id: "26",
     name: "Techspardha - NIT Kurukshetra",
@@ -20,7 +40,7 @@ export const certificatesData: Certificate[] = [
     image: "/certificates/Techspardha NITKurukshetra.jpg",
     category: "Competition",
     featured: true,
-    priority: 2
+    priority: 3
   },
   {
     id: "25",
@@ -39,7 +59,6 @@ export const certificatesData: Certificate[] = [
     date: "2025",
     image: "/certificates/CodeForge.jpg",
     category: "Hackathon",
-    featured: true,
     priority: 4
   },
   {
@@ -49,7 +68,6 @@ export const certificatesData: Certificate[] = [
     date: "2025",
     image: "/certificates/yesist ambassdor.jpeg",
     category: "Ambassador",
-    featured: true,
     priority: 5
   },
   {
@@ -59,7 +77,6 @@ export const certificatesData: Certificate[] = [
     date: "2025",
     image: "/certificates/Hack4Bihar Offer Letter.jpeg",
     category: "Internship",
-    featured: true,
     priority: 6
   },
   {
@@ -98,7 +115,8 @@ export const certificatesData: Certificate[] = [
     date: "2024",
     image: "/certificates/Certificate of Participation - TOP 10 Teams Covergex Hackathon Dec 2024.png",
     category: "Hackathon",
-    priority: 11
+    featured: true,
+    priority: 1
   },
   {
     id: "7",
@@ -107,7 +125,8 @@ export const certificatesData: Certificate[] = [
     date: "2024",
     image: "/certificates/Certificate of Achievement Poster Presentation 2nd prize.png",
     category: "Award",
-    priority: 12
+    featured: true,
+    priority: 1
   },
   {
     id: "2", 
@@ -252,7 +271,8 @@ export const certificatesData: Certificate[] = [
     date: "2024",
     image: "/certificates/Creative Member Newsletter Certificate.png",
     category: "Creative",
-    priority: 61
+    featured: true,
+    priority: 1
   },
 
   // 2024 - Other Activities

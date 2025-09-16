@@ -172,7 +172,7 @@ const About = () => {
                     <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                       <li className="flex items-center">
                         <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3"></div>
-                        Mentoring fellow students in web development
+                        Participating in hackathons and coding competitions.
                       </li>
                       <li className="flex items-center">
                         <div className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3"></div>
@@ -180,7 +180,7 @@ const About = () => {
                       </li>
                       <li className="flex items-center">
                         <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-3"></div>
-                        Photography and UI/UX design enthusiast
+                        Exploring UI/UX design trends and tools
                       </li>
                     </ul>
                   </div>
@@ -208,7 +208,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.7 }}
               className="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-xl border border-purple-200/50 dark:border-purple-700/50"
             >
-              <div className="text-2xl font-semibold text-purple-600 dark:text-purple-400 mb-1">3+</div>
+              <div className="text-2xl font-semibold text-purple-600 dark:text-purple-400 mb-1">1+</div>
               <div className="text-sm font-medium text-gray-700 dark:text-gray-300">Years Experience</div>
               <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">Full-stack development</div>
             </motion.div>
