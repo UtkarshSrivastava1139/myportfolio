@@ -63,29 +63,68 @@ const Contact = () => {
     setSubmitStatus("idle");
 
     try {
+      // Debug: Log configuration
+      console.log('EmailJS Config:', {
+        serviceId: emailjsConfig.serviceId,
+        templateId: emailjsConfig.templateId,
+        publicKey: emailjsConfig.publicKey ? '***configured***' : 'MISSING'
+      });
+
+      // Check if all required config is present
+      if (!emailjsConfig.serviceId || !emailjsConfig.templateId || !emailjsConfig.publicKey) {
+        throw new Error('EmailJS configuration is incomplete. Please check your .env.local file.');
+      }
+
       // Initialize EmailJS with public key
       emailjs.init(emailjsConfig.publicKey);
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'utkarshsri1139@gmail.com',
+        // Add additional template variables that might be needed
+        user_name: formData.name,
+        user_email: formData.email,
+        reply_to: formData.email
+      };
+
+      console.log('Sending email with params:', templateParams);
 
       // Send email using EmailJS
       const result = await emailjs.send(
         emailjsConfig.serviceId,
         emailjsConfig.templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: 'utkarshsri1139@gmail.com',
-        },
+        templateParams,
         emailjsConfig.publicKey
       );
 
-      console.log('Email sent successfully:', result);
+      console.log('✅ Email sent successfully:', result);
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
-    } catch (error) {
-      console.error('Email sending failed:', error);
+    } catch (error: any) {
+      console.error('❌ Email sending failed:', error);
+      
+      // Detailed error logging
+      if (error?.status) {
+        console.error('Error Status:', error.status);
+        console.error('Error Text:', error.text);
+      }
+      
+      // Set user-friendly error message based on error type
+      if (error?.status === 400) {
+        console.error('Bad Request - Template variables might be incorrect');
+      } else if (error?.status === 401) {
+        console.error('Unauthorized - Check your EmailJS Public Key');
+      } else if (error?.status === 404) {
+        console.error('Not Found - Check your Service ID or Template ID');
+      } else if (error?.status === 403) {
+        console.error('Forbidden - Check EmailJS account limits or email service configuration');
+      }
+      
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
