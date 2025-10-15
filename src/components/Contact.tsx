@@ -235,7 +235,7 @@ const Contact = () => {
                 </h4>
                 <div className="flex space-x-3">
                   <a
-                    href="https://github.com/utkarsh"
+                    href="https://github.com/utkarshsrivastava1139"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
