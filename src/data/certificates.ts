@@ -43,6 +43,16 @@ export const certificatesData: Certificate[] = [
     priority: 3
   },
   {
+    id: "30",
+    name: "Adobe India Hackathon",
+    issuer: "Adobe & Unstop",
+    date: "2025",
+    image: "/certificates/Adobe India Hackathon - Participation.jpg",
+    category: "Competition",
+    featured: false,
+    priority: 3
+  },
+  {
     id: "25",
     name: "Hack2Skill Certification",
     issuer: "Hack2Skill",

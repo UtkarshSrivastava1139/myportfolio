@@ -95,6 +95,17 @@ const Projects = () => {
       githubLink: "#",
       featured: false,
       date: "Dec 2024"
+    },
+    {
+      id: 8,
+      title: "Hackneeti - Hackathon Website",
+      description: "Official website for Hackneeti, a national-level hackathon. Features seamless registration, event details, and real-time updates with a focus on performance and user experience.",
+      image: "/projects/hackneeti.png",
+      technologies: ["Next.js", "React", "Tailwind CSS",  "Javascript"],
+      liveLink: "#",
+      githubLink: "#",
+      featured: false,
+      date: "Mar 2025",
     }
     
     
